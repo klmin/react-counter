@@ -1,12 +1,21 @@
+const numbers = [-1, -10, -100, 100, 10, 1];
+
+const Button = ({value, clickEvent}) => {
+    const handleClick = () => clickEvent(value);
+
+    return (
+        <button value={value} onClick={handleClick}>
+          {value > 0 ? `+${value}` : value}
+        </button>
+      );
+};
+
 const Controller = ({handleSetCount}) => {
     return (
         <div>
-            <button onClick={() => handleSetCount(-1)}>-1</button>
-            <button onClick={() => handleSetCount(-10)}>-10</button>
-            <button onClick={() => handleSetCount(-100)}>-100</button>
-            <button onClick={() => handleSetCount(100)}>+100</button>
-            <button onClick={() => handleSetCount(10)}>+10</button>
-            <button onClick={() => handleSetCount(1)}>+1</button>
+            {numbers.map(v => (
+                <Button key={v} value={v} clickEvent={handleSetCount} />
+            ))}
         </div>
     );
 };
