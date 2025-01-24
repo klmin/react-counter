@@ -7,10 +7,10 @@ import Even from "./components/Even";
 
 function TestComponent() {
   useEffect(() => {
-    console.log('컴포넌트 마운트');
+    console.log('TestComponent 컴포넌트 마운트');
 
     return () => {
-      console.log('컴포넌트 언마운트');
+      console.log('TestComponent 컴포넌트 언마운트');
     };
   }, []);
 
